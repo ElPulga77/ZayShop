@@ -1,0 +1,73 @@
+﻿@model ZayShop.Models.ProductDetail
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
+}
+@if ((int)ViewBag.flag == 0)
+{
+
+    <h3>Bạn có thực sự mún xóa?</h3>
+    <a asp-action="Index" class="btn btn-primary">Hủy Bỏ</a>
+}
+else
+{
+    <h3>Bạn không thể xóa môn học này!!</h3>
+}
+<div>
+    <h4>ProductDetail</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductDetailId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductDetailId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ColorId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ColorId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SizeId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SizeId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete1" asp-route-id="@Model.ProductDetailId">
+        @if ((int)ViewBag.flag == 0)
+        {
+
+            <input type="submit" value="Xóa" class="btn btn-danger" />
+        }
+        else
+        {
+            <h3>Bạn không thể xóa môn học này!!</h3>
+        }
+        <input type="hidden" asp-for="ProductDetailId" />
+
+
+    </form>
+</div>

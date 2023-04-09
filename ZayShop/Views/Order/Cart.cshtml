@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ZayShop.Models.CChitiethoadonView>
+
+@{
+    ViewData["Title"] = "Giỏ Hàng";
+
+}
+<h1>Giỏ Hàng Của Bạn</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Mã sản phẩm
+            </th>
+            <th>
+                Hình ảnh
+            </th>
+            <th>
+                Tên sản phẩm
+            </th>
+            <th>
+                Color
+            </th>
+            <th>
+                Size
+            </th>
+            <th>
+                Giá
+            </th>
+            <th>
+                Số lượng
+            </th>
+            <th>
+                Thành tiền
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+           <tr>
+               <td>@Html.DisplayFor(model => item.ProductDetailId)</td>
+                <td>
+                    <img width="200" height="200" src="~/image/product/@item.Hinhanh" />
+                </td>
+                
+                <td>@Html.DisplayFor(model => item.ProductName)</td>
+                <td>@Html.DisplayFor(model => item.color)</td>
+                <td>@Html.DisplayFor(model => item.Size)</td>
+                <td>@Html.DisplayFor(model => item.Gia) VNĐ</td>
+                <td>@Html.DisplayFor(model => item.Soluong)</td>
+                <td>@Html.DisplayFor(model => item.Thanhtien) VNĐ</td>
+               <td>
+                    <input type="hidden" name="id" value="@item.ProductDetailId" />
+               </td>
+           </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <div class="offset-8 col-md-4">
+        Tổng thành tiền: @Model.Sum(x => double.Parse(x.Thanhtien)) VNĐ
+    </div>
+</div>

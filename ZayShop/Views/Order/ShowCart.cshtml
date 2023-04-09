@@ -1,0 +1,35 @@
+﻿@model List<CChitiethoadonView>
+@{
+    ViewBag.Title = "Add To Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if(Model!=null)
+{
+
+
+<table class="table">
+        <thead>
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Image</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Tổng tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+        @*    @foreach (var item in Model)
+            {
+                double total = Convert.ToDouble(item.spct.Product.Price * item.Soluong);
+            <tr>
+                <td>@Html.DisplayFor(model => item.spct.Product.ProductName)</td>
+                <td>@Html.DisplayFor(model => item.spct.Image)</td>
+                <td>@Html.DisplayFor(model => item.spct.Product.Price)</td>
+                <td>@Html.DisplayFor(model => item.Soluong)</td>
+            </tr>
+            }*@
+        </tbody>
+    </table>
+}

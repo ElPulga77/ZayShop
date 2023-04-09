@@ -1,0 +1,47 @@
+﻿@model ZayShop.Models.ProductDetail
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="card-body">
+    <h4 class="card-title">Thông tin sản phẩm: @Model.Product.ProductName</h4>
+    <div class="table-responsive">
+        <table class="product-info-table m-t-20">
+            <tbody>
+                <tr>
+                    <td>ID:</td>
+                    <td class="text-dark font-weight-semibold">@Model.ProductId</td>
+                </tr>
+                <tr>
+                    <td>Tên sản phẩm:</td>
+                    <td>@Model.Product.ProductName</td>
+                </tr>
+
+             @*   <tr>
+                    <td>Màu sắc:</td>
+                    <td>@Model.Color.ColorName</td>
+                </tr>
+                <tr>
+                    <td>Size:</td>
+                    <td>@Model.Size.SizeName</td>   
+                </tr>*@
+                <tr>
+                    <td>Giá:</td>
+                    <td>@Model.Product.Price.Value.ToString("#,##0") VNĐ</td>
+                </tr>
+                <tr>
+                    <td>Hình ảnh:</td>
+                    <td>
+                   <img width="200" height="200" src="~/image/product/@Model.Image" />
+                    </td>
+                </tr>
+
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+

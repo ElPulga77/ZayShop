@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ZayShop.Models.ProductDetail>
+@{
+    ViewData["Title"] = "Danh Sách Sản Phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="page-header">
+
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="AdminSanphams" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+            <span class="breadcrumb-item active">Danh sách sản phẩm: </span>
+        </nav>
+    </div>
+</div>
+
+<div class="row m-b-30">
+    <div class="col-lg-8">
+        <div class="d-md-flex">
+            <div class="m-b-10 m-r-15">
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-4 text-right">
+        <a class="btn btn-primary" asp-controller="Product" asp-action="Add">
+            <i class="anticon anticon-plus-circle m-r-5"></i>
+            <span>Thêm sản phẩm</span>
+        </a>
+
+    </div>
+</div>
+
+<table class="table table-hover e-commerce-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên sản phẩm</th>
+            <th>Màu</th>
+            <th>Size</th>
+            <th>Giá</th>
+            <th>Hình ảnh</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+        <tr>
+
+            <td>@item.ProductDetailId</td>
+            @*<td>@item.Product.ProductName</td>*@
+            @*<td>@item.Color.ColorName</td>
+            <td>@item.Size.SizeName</td>*@
+           @* <td>@item.Product.Price.Value.ToString("#,##0") VND</td>*@
+                    <td><img width="50" height="50" src="~/image/product/@item.Image" /></td>
+            <td>
+                <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="Product" asp-action="Details" asp-route-id="@item.ProductDetailId">View</a>
+                        <a class="btn btn-secondary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminSanpham" asp-action="Edit" asp-route-id="@item.ProductDetailId">Edit</a>
+                        <a class="btn btn-success btn-tone m-r-5" asp-area="Admin" asp-controller="Product" asp-action="Delete" asp-route-id="@item.ProductDetailId">Delete</a>
+            </td>
+
+        </tr>
+            }
+        }
+
+    </tbody>
+</table>
+
